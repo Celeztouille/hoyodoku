@@ -1,0 +1,179 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ddd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+    background-color: #333;
+    border: 5px solid #333;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cell {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    position: relative;
+    padding: 5px;
+    word-wrap: break-word;
+    overflow: hidden;
+    border: 1px solid transparent;
+}
+
+.cell:hover {
+    background-color: #e6f7ff;
+}
+
+.cell.selected {
+    border: 2px solid #4CAF50;
+    background-color: #e8f5e9;
+    transform: scale(1.02);
+    z-index: 10;
+}
+
+.cell.filled {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.input-field {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, visibility 0.2s;
+
+    position: relative;
+    margin-top: 20px;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 320px;
+    display: flex; 
+    overflow: visible;
+}
+
+.input-field.active {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: all; 
+}
+
+.global-input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    text-align: center;
+    text-transform: capitalize;
+    transition: border-color 0.2s;
+}
+
+.global-input:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+}
+
+.suggestions-list {
+    list-style: none;
+    padding: 5px 0;
+    margin: 5px 0 0 0;
+    width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    z-index: 100;
+    box-shadow: none;
+
+    justify-content: center;
+    align-items: center;
+
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    height: 0;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s;
+}
+
+.suggestions-list.active {
+    height: auto;
+    max-height: 120px;
+    padding: 8px;
+    margin: 0;
+    visibility: visible;
+    opacity: 1;
+    pointer-events: all;
+    position: absolute;
+    top: 100%;
+}
+
+.suggestions-list li {
+    padding: 6px 12px;
+    background-color: #f0f2f5;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.suggestions-list li:last-child {
+    border-right: none;
+}
+
+.suggestions-list li:hover {
+    background-color: #e6f7ff;
+    border-color: #4CAF50;
+    color: #4CAF50;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.suggestions-list li.highlighted {
+    background-color: #4CAF50;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(76, 175, 80, 0.4)
+}
+

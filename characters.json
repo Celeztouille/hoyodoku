@@ -1,0 +1,1152 @@
+[
+  {
+    "name": "Amber",
+    "element": "Pyro",
+    "region": "Mondstadt",
+    "weapon": "Bow",
+    "gender": "Female",
+    "body-type": "Medium",
+    "human": true,
+    "rarity": 4
+  },
+  {
+    "name": "Kaeya",
+    "element": "Cryo",
+    "region": "Mondstadt",
+    "weapon": "Sword",
+    "gender": "Male",
+    "body-type": "Tall",
+    "human": true,
+    "rarity": 4
+  },
+  {
+    "name": "Lisa",
+    "element": "Electro",
+    "region": "Mondstadt",
+    "weapon": "Catalyst",
+    "gender": "Female",
+    "body-type": "Tall",
+    "human": true,
+    "rarity": 4
+  },
+  {
+    "name": "Barbara",
+    "element": "Hydro",
+    "region": "Mondstadt",
+    "weapon": "Catalyst",
+    "gender": "Female",
+    "body-type": "Medium",
+    "human": true,
+    "rarity": 4
+  },
+  {
+    "name": "Razor",
+    "element": "Electro",
+    "region": "Mondstadt",
+    "weapon": "Claymore",
+    "gender": "Male",
+    "body-type": "Medium",
+    "human": true,
+    "rarity": 4
+  },
+  {
+    "name": "Xiangling",
+    "element": "Pyro",
+    "region": "Liyue",
+    "weapon": "Polearm",
+    "gender": "Female",
+    "body-type": "Medium",
+    "human": true,
+    "rarity": 4
+  },
+  {
+    "name": "Beidou",
+    "element": "Electro",
+    "region": "Liyue",
+    "weapon": "Claymore",
+    "gender": "Female",
+    "body-type": "Tall",
+    "human": true,
+    "rarity": 4
+  },
+  {
+    "name": "Xingqiu",
+    "element": "Hydro",
+    "region": "Liyue",
+    "weapon": "Sword",
+    "gender": "Male",
+    "body-type": "Medium",
+    "human": true,
+    "rarity": 4
+  },
+  {
+    "name": "Ningguang",
+    "element": "Geo",
+    "region": "Liyue",
+    "weapon": "Catalyst",
+    "gender": "Female",
+    "body-type": "Tall",
+    "human": true,
+    "rarity": 4
+  },
+  {
+    "name": "Fischl",
+    "element": "Electro",
+    "region": "Mondstadt",
+    "weapon": "Bow",
+    "gender": "Female",
+    "body-type": "Medium",
+    "human": true,
+    "rarity": 4
+  },
+  {
+    "name": "Bennett",
+    "element": "Pyro",
+    "region": "Mondstadt",
+    "weapon": "Sword",
+    "gender": "Male",
+    "body-type": "Medium",
+    "human": true,
+    "rarity": 4
+  },
+  {
+    "name": "Noelle",
+    "element": "Geo",
+    "region": "Mondstadt",
+    "weapon": "Claymore",
+    "gender": "Female",
+    "body-type": "Medium",
+    "human": true,
+    "rarity": 4
+  },
+  {
+    "name": "Chongyun",
+    "element": "Cryo",
+    "region": "Liyue",
+    "weapon": "Claymore",
+    "gender": "Male",
+    "body-type": "Medium",
+    "human": true,
+    "rarity": 4
+  },
+  {
+    "name": "Sucrose",
+    "element": "Anemo",
+    "region": "Mondstadt",
+    "weapon": "Catalyst",
+    "gender": "Female",
+    "body-type": "Medium",
+    "human": true,
+    "rarity": 4
+  },
+  {
+    "name": "Jean",
+    "element": "Anemo",
+    "region": "Mondstadt",
+    "weapon": "Sword",
+    "gender": "Female",
+    "body-type": "Tall",
+    "human": true,
+    "rarity": 5
+  },
+  {
+    "name": "Diluc",
+    "element": "Pyro",
+    "region": "Mondstadt",
+    "weapon": "Claymore",
+    "gender": "Male",
+    "body-type": "Tall",
+    "human": true,
+    "rarity": 5
+  },
+  {
+    "name": "Qiqi",
+    "element": "Cryo",
+    "region": "Liyue",
+    "weapon": "Sword",
+    "gender": "Female",
+    "body-type": "Short",
+    "human": false,
+    "rarity": 5
+  },
+  {
+    "name": "Mona",
+    "element": "Hydro",
+    "region": "Mondstadt",
+    "weapon": "Catalyst",
+    "gender": "Female",
+    "body-type": "Medium",
+    "human": true,
+    "rarity": 5
+  },
+  {
+    "name": "Keqing",
+    "element": "Electro",
+    "region": "Liyue",
+    "weapon": "Sword",
+    "gender": "Female",
+    "body-type": "Medium",
+    "human": true,
+    "rarity": 5
+  },
+  {
+    "name": "Venti",
+    "element": "Anemo",
+    "region": "Mondstadt",
+    "weapon": "Bow",
+    "gender": "Male",
+    "body-type": "Medium",
+    "human": false,
+    "rarity": 5
+  },
+  {
+    "name": "Klee",
+    "element": "Pyro",
+    "region": "Mondstadt",
+    "weapon": "Catalyst",
+    "gender": "Female",
+    "body-type": "Short",
+    "human": false,
+    "rarity": 5
+  },
+  {
+    "name": "Diona",
+    "element": "Cryo",
+    "region": "Mondstadt",
+    "weapon": "Bow",
+    "gender": "Female",
+    "body-type": "Short",
+    "human": false,
+    "rarity": 4
+  },
+  {
+    "name": "Tartaglia",
+    "element": "Hydro",
+    "region": "Snezhnaya",
+    "weapon": "Bow",
+    "gender": "Male",
+    "body-type": "Tall",
+    "human": true,
+    "rarity": 5
+  },
+  {
+    "name": "Xinyan",
+    "element": "Pyro",
+    "region": "Liyue",
+    "weapon": "Claymore",
+    "gender": "Female",
+    "body-type": "Medium",
+    "human": true,
+    "rarity": 4
+  },
+  {
+    "name": "Zhongli",
+    "element": "Geo",
+    "region": "Liyue",
+    "weapon": "Polearm",
+    "gender": "Male",
+    "body-type": "Tall",
+    "human": false,
+    "rarity": 5
+  },
+  {
+    "name": "Albedo",
+    "element": "Geo",
+    "region": "Mondstadt",
+    "weapon": "Sword",
+    "gender": "Male",
+    "body-type": "Medium",
+    "human": false,
+    "rarity": 5
+  },
+  {
+    "name": "Ganyu",
+    "element": "Cryo",
+    "region": "Liyue",
+    "weapon": "Bow",
+    "gender": "Female",
+    "body-type": "Medium",
+    "human": false,
+    "rarity": 5
+  },
+  {
+    "name": "Xiao",
+    "element": "Anemo",
+    "region": "Liyue",
+    "weapon": "Polearm",
+    "gender": "Male",
+    "body-type": "Medium",
+    "human": false,
+    "rarity": 5
+  },
+  {
+    "name": "Hu Tao",
+    "element": "Pyro",
+    "region": "Liyue",
+    "weapon": "Polearm",
+    "gender": "Female",
+    "body-type": "Medium",
+    "human": true,
+    "rarity": 5
+  },
+  {
+    "name": "Rosaria",
+    "element": "Cryo",
+    "region": "Mondstadt",
+    "weapon": "Polearm",
+    "gender": "Female",
+    "body-type": "Tall",
+    "human": true,
+    "rarity": 4
+  },
+  {
+    "name": "Yanfei",
+    "element": "Pyro",
+    "region": "Liyue",
+    "weapon": "Catalyst",
+    "gender": "Female",
+    "body-type": "Medium",
+    "human": false,
+    "rarity": 4
+  },
+  {
+    "name": "Eula",
+    "element": "Cryo",
+    "region": "Mondstadt",
+    "weapon": "Claymore",
+    "gender": "Female",
+    "body-type": "Tall",
+    "human": true,
+    "rarity": 5
+  },
+  {
+    "name": "Kaedehara Kazuha",
+    "element": "Anemo",
+    "region": "Inazuma",
+    "weapon": "Sword",
+    "gender": "Male",
+    "body-type": "Medium",
+    "human": true,
+    "rarity": 5
+  },
+  {
+    "name": "Kamisato Ayaka",
+    "element": "Cryo",
+    "region": "Inazuma",
+    "weapon": "Sword",
+    "gender": "Female",
+    "body-type": "Medium",
+    "human": true,
+    "rarity": 5
+  },
+  {
+    "name": "Sayu",
+    "element": "Anemo",
+    "region": "Inazuma",
+    "weapon": "Claymore",
+    "gender": "Female",
+    "body-type": "Short",
+    "human": true,
+    "rarity": 4
+  },
+  {
+    "name": "Yoimiya",
+    "element": "Pyro",
+    "region": "Inazuma",
+    "weapon": "Bow",
+    "gender": "Female",
+    "body-type": "Medium",
+    "human": true,
+    "rarity": 5
+  },
+  {
+    "name": "Kujou Sara",
+    "element": "Electro",
+    "region": "Inazuma",
+    "weapon": "Bow",
+    "gender": "Female",
+    "body-type": "Tall",
+    "human": false,
+    "rarity": 4
+  },
+  {
+    "name": "Raiden Shogun",
+    "element": "Electro",
+    "region": "Inazuma",
+    "weapon": "Polearm",
+    "gender": "Female",
+    "body-type": "Tall",
+    "human": false,
+    "rarity": 5
+  },
+  {
+    "name": "Sangonomiya Kokomi",
+    "element": "Hydro",
+    "region": "Inazuma",
+    "weapon": "Catalyst",
+    "gender": "Female",
+    "body-type": "Medium",
+    "human": true,
+    "rarity": 5
+  },
+  {
+    "name": "Thoma",
+    "element": "Pyro",
+    "region": "Inazuma",
+    "weapon": "Polearm",
+    "gender": "Male",
+    "body-type": "Tall",
+    "human": true,
+    "rarity": 4
+  },
+  {
+    "name": "Gorou",
+    "element": "Geo",
+    "region": "Inazuma",
+    "weapon": "Bow",
+    "gender": "Male",
+    "body-type": "Medium",
+    "human": false,
+    "rarity": 4
+  },
+  {
+    "name": "Arataki Itto",
+    "element": "Geo",
+    "region": "Inazuma",
+    "weapon": "Claymore",
+    "gender": "Male",
+    "body-type": "Tall",
+    "human": false,
+    "rarity": 5
+  },
+  {
+    "name": "Yun Jin",
+    "element": "Geo",
+    "region": "Liyue",
+    "weapon": "Polearm",
+    "gender": "Female",
+    "body-type": "Medium",
+    "human": true,
+    "rarity": 4
+  },
+  {
+    "name": "Shenhe",
+    "element": "Cryo",
+    "region": "Liyue",
+    "weapon": "Polearm",
+    "gender": "Female",
+    "body-type": "Tall",
+    "human": true,
+    "rarity": 5
+  },
+  {
+    "name": "Yae Miko",
+    "element": "Electro",
+    "region": "Inazuma",
+    "weapon": "Catalyst",
+    "gender": "Female",
+    "body-type": "Tall",
+    "human": false,
+    "rarity": 5
+  },
+  {
+    "name": "Kamisato Ayato",
+    "element": "Hydro",
+    "region": "Inazuma",
+    "weapon": "Sword",
+    "gender": "Male",
+    "body-type": "Tall",
+    "human": true,
+    "rarity": 5
+  },
+  {
+    "name": "Yelan",
+    "element": "Hydro",
+    "region": "Liyue",
+    "weapon": "Bow",
+    "gender": "Female",
+    "body-type": "Tall",
+    "human": true,
+    "rarity": 5
+  },
+  {
+    "name": "Kuki Shinobu",
+    "element": "Electro",
+    "region": "Inazuma",
+    "weapon": "Sword",
+    "gender": "Female",
+    "body-type": "Medium",
+    "human": true,
+    "rarity": 4
+  },
+  {
+    "name": "Shikanoin Heizou",
+    "element": "Anemo",
+    "region": "Inazuma",
+    "weapon": "Catalyst",
+    "gender": "Male",
+    "body-type": "Medium",
+    "human": true,
+    "rarity": 4
+  },
+  {
+    "name": "Collei",
+    "element": "Dendro",
+    "region": "Sumeru",
+    "weapon": "Bow",
+    "gender": "Female",
+    "body-type": "Medium",
+    "human": true,
+    "rarity": 4
+  },
+  {
+    "name": "Tighnari",
+    "element": "Dendro",
+    "region": "Sumeru",
+    "weapon": "Bow",
+    "gender": "Male",
+    "body-type": "Medium",
+    "human": false,
+    "rarity": 5
+  },
+  {
+    "name": "Dori",
+    "element": "Electro",
+    "region": "Sumeru",
+    "weapon": "Claymore",
+    "gender": "Female",
+    "body-type": "Short",
+    "human": true,
+    "rarity": 4
+  },
+  {
+    "name": "Candace",
+    "element": "Hydro",
+    "region": "Sumeru",
+    "weapon": "Polearm",
+    "gender": "Female",
+    "body-type": "Tall",
+    "human": true,
+    "rarity": 4
+  },
+  {
+    "name": "Cyno",
+    "element": "Electro",
+    "region": "Sumeru",
+    "weapon": "Polearm",
+    "gender": "Male",
+    "body-type": "Medium",
+    "human": true,
+    "rarity": 5
+  },
+  {
+    "name": "Nilou",
+    "element": "Hydro",
+    "region": "Sumeru",
+    "weapon": "Sword",
+    "gender": "Female",
+    "body-type": "Medium",
+    "human": true,
+    "rarity": 5
+  },
+  {
+    "name": "Nahida",
+    "element": "Dendro",
+    "region": "Sumeru",
+    "weapon": "Catalyst",
+    "gender": "Female",
+    "body-type": "Short",
+    "human": false,
+    "rarity": 5
+  },
+  {
+    "name": "Layla",
+    "element": "Cryo",
+    "region": "Sumeru",
+    "weapon": "Sword",
+    "gender": "Female",
+    "body-type": "Medium",
+    "human": true,
+    "rarity": 4
+  },
+  {
+    "name": "Faruzan",
+    "element": "Anemo",
+    "region": "Sumeru",
+    "weapon": "Bow",
+    "gender": "Female",
+    "body-type": "Medium",
+    "human": true,
+    "rarity": 4
+  },
+  {
+    "name": "Wanderer",
+    "element": "Anemo",
+    "region": "Sumeru",
+    "weapon": "Catalyst",
+    "gender": "Male",
+    "body-type": "Medium",
+    "human": false,
+    "rarity": 5
+  },
+  {
+    "name": "Yaoyao",
+    "element": "Dendro",
+    "region": "Liyue",
+    "weapon": "Polearm",
+    "gender": "Female",
+    "body-type": "Short",
+    "human": true,
+    "rarity": 4
+  },
+  {
+    "name": "Alhaitham",
+    "element": "Dendro",
+    "region": "Sumeru",
+    "weapon": "Sword",
+    "gender": "Male",
+    "body-type": "Tall",
+    "human": true,
+    "rarity": 5
+  },
+  {
+    "name": "Dehya",
+    "element": "Pyro",
+    "region": "Sumeru",
+    "weapon": "Claymore",
+    "gender": "Female",
+    "body-type": "Tall",
+    "human": true,
+    "rarity": 5
+  },
+  {
+    "name": "Mika",
+    "element": "Cryo",
+    "region": "Mondstadt",
+    "weapon": "Polearm",
+    "gender": "Male",
+    "body-type": "Medium",
+    "human": true,
+    "rarity": 4
+  },
+  {
+    "name": "Kaveh",
+    "element": "Dendro",
+    "region": "Sumeru",
+    "weapon": "Claymore",
+    "gender": "Male",
+    "body-type": "Tall",
+    "human": true,
+    "rarity": 4
+  },
+  {
+    "name": "Baizhu",
+    "element": "Dendro",
+    "region": "Liyue",
+    "weapon": "Catalyst",
+    "gender": "Male",
+    "body-type": "Tall",
+    "human": true,
+    "rarity": 5
+  },
+  {
+    "name": "Kirara",
+    "element": "Dendro",
+    "region": "Inazuma",
+    "weapon": "Sword",
+    "gender": "Female",
+    "body-type": "Medium",
+    "human": false,
+    "rarity": 4
+  },
+  {
+    "name": "Lynette",
+    "element": "Anemo",
+    "region": "Fontaine",
+    "weapon": "Sword",
+    "gender": "Female",
+    "body-type": "Medium",
+    "human": false,
+    "rarity": 4
+  },
+  {
+    "name": "Lyney",
+    "element": "Pyro",
+    "region": "Fontaine",
+    "weapon": "Bow",
+    "gender": "Male",
+    "body-type": "Medium",
+    "human": false,
+    "rarity": 5
+  },
+  {
+    "name": "Freminet",
+    "element": "Cryo",
+    "region": "Fontaine",
+    "weapon": "Claymore",
+    "gender": "Male",
+    "body-type": "Medium",
+    "human": true,
+    "rarity": 4
+  },
+  {
+    "name": "Neuvillette",
+    "element": "Hydro",
+    "region": "Fontaine",
+    "weapon": "Catalyst",
+    "gender": "Male",
+    "body-type": "Tall",
+    "human": false,
+    "rarity": 5
+  },
+  {
+    "name": "Wriothesley",
+    "element": "Cryo",
+    "region": "Fontaine",
+    "weapon": "Catalyst",
+    "gender": "Male",
+    "body-type": "Tall",
+    "human": true,
+    "rarity": 5
+  },
+  {
+    "name": "Charlotte",
+    "element": "Cryo",
+    "region": "Fontaine",
+    "weapon": "Catalyst",
+    "gender": "Female",
+    "body-type": "Medium",
+    "human": true,
+    "rarity": 4
+  },
+  {
+    "name": "Furina",
+    "element": "Hydro",
+    "region": "Fontaine",
+    "weapon": "Sword",
+    "gender": "Female",
+    "body-type": "Medium",
+    "human": false,
+    "rarity": 5
+  },
+  {
+    "name": "Navia",
+    "element": "Geo",
+    "region": "Fontaine",
+    "weapon": "Claymore",
+    "gender": "Female",
+    "body-type": "Tall",
+    "human": true,
+    "rarity": 5
+  },
+  {
+    "name": "Chevreuse",
+    "element": "Pyro",
+    "region": "Fontaine",
+    "weapon": "Polearm",
+    "gender": "Female",
+    "body-type": "Medium",
+    "human": true,
+    "rarity": 4
+  },
+  {
+    "name": "Gaming",
+    "element": "Pyro",
+    "region": "Liyue",
+    "weapon": "Claymore",
+    "gender": "Male",
+    "body-type": "Medium",
+    "human": true,
+    "rarity": 4
+  },
+  {
+    "name": "Xianyun",
+    "element": "Anemo",
+    "region": "Liyue",
+    "weapon": "Catalyst",
+    "gender": "Female",
+    "body-type": "Tall",
+    "human": false,
+    "rarity": 5
+  },
+  {
+    "name": "Chiori",
+    "element": "Geo",
+    "region": "Inazuma",
+    "weapon": "Sword",
+    "gender": "Female",
+    "body-type": "Medium",
+    "human": true,
+    "rarity": 5
+  },
+  {
+    "name": "Arlecchino",
+    "element": "Pyro",
+    "region": "Snezhnaya",
+    "weapon": "Polearm",
+    "gender": "Female",
+    "body-type": "Tall",
+    "human": true,
+    "rarity": 5
+  },
+  {
+    "name": "Sethos",
+    "element": "Electro",
+    "region": "Sumeru",
+    "weapon": "Bow",
+    "gender": "Male",
+    "body-type": "Medium",
+    "human": true,
+    "rarity": 4
+  },
+  {
+    "name": "Clorinde",
+    "element": "Electro",
+    "region": "Fontaine",
+    "weapon": "Sword",
+    "gender": "Female",
+    "body-type": "Tall",
+    "human": true,
+    "rarity": 5
+  },
+  {
+    "name": "Sigewinne",
+    "element": "Hydro",
+    "region": "Fontaine",
+    "weapon": "Bow",
+    "gender": "Female",
+    "body-type": "Short",
+    "human": false,
+    "rarity": 5
+  },
+  {
+    "name": "Emilie",
+    "element": "Dendro",
+    "region": "Fontaine",
+    "weapon": "Polearm",
+    "gender": "Female",
+    "body-type": "Medium",
+    "human": true,
+    "rarity": 5
+  },
+  {
+    "name": "Kachina",
+    "element": "Geo",
+    "region": "Natlan",
+    "weapon": "Polearm",
+    "gender": "Female",
+    "body-type": "Short",
+    "human": false,
+    "rarity": 4
+  },
+  {
+    "name": "Mualani",
+    "element": "Hydro",
+    "region": "Natlan",
+    "weapon": "Catalyst",
+    "gender": "Female",
+    "body-type": "Medium",
+    "human": true,
+    "rarity": 5
+  },
+  {
+    "name": "Kinich",
+    "element": "Dendro",
+    "region": "Natlan",
+    "weapon": "Claymore",
+    "gender": "Male",
+    "body-type": "Medium",
+    "human": true,
+    "rarity": 5
+  },
+  {
+    "name": "Xilonen",
+    "element": "Geo",
+    "region": "Natlan",
+    "weapon": "Sword",
+    "gender": "Female",
+    "body-type": "Tall",
+    "human": false,
+    "rarity": 5
+  },
+  {
+    "name": "Ororon",
+    "element": "Electro",
+    "region": "Natlan",
+    "weapon": "Bow",
+    "gender": "Male",
+    "body-type": "Tall",
+    "human": true,
+    "rarity": 4
+  },
+  {
+    "name": "Chasca",
+    "element": "Anemo",
+    "region": "Natlan",
+    "weapon": "Bow",
+    "gender": "Female",
+    "body-type": "Tall",
+    "human": false,
+    "rarity": 5
+  },
+  {
+    "name": "Citlali",
+    "element": "Cryo",
+    "region": "Natlan",
+    "weapon": "Catalyst",
+    "gender": "Female",
+    "body-type": "Medium",
+    "human": false,
+    "rarity": 5
+  },
+  {
+    "name": "Mavuika",
+    "element": "Pyro",
+    "region": "Natlan",
+    "weapon": "Claymore",
+    "gender": "Female",
+    "body-type": "Tall",
+    "human": true,
+    "rarity": 5
+  },
+  {
+    "name": "Lan Yan",
+    "element": "Anemo",
+    "region": "Liyue",
+    "weapon": "Catalyst",
+    "gender": "Female",
+    "body-type": "Medium",
+    "human": true,
+    "rarity": 4
+  },
+  {
+    "name": "Yumemizuki Mizuki",
+    "element": "Anemo",
+    "region": "Inazuma",
+    "weapon": "Catalyst",
+    "gender": "Female",
+    "body-type": "Medium",
+    "human": false,
+    "rarity": 5
+  },
+  {
+    "name": "Iansan",
+    "element": "Electro",
+    "region": "Natlan",
+    "weapon": "Polearm",
+    "gender": "Female",
+    "body-type": "Short",
+    "human": true,
+    "rarity": 4
+  },
+  {
+    "name": "Varesa",
+    "element": "Electro",
+    "region": "Natlan",
+    "weapon": "Catalyst",
+    "gender": "Female",
+    "body-type": "Medium",
+    "human": false,
+    "rarity": 4
+  },
+  {
+    "name": "Escoffier",
+    "element": "Cryo",
+    "region": "Fontaine",
+    "weapon": "Polearm",
+    "gender": "Female",
+    "body-type": "Medium",
+    "human": true,
+    "rarity": 5
+  },
+  {
+    "name": "Ifa",
+    "element": "Anemo",
+    "region": "Natlan",
+    "weapon": "Catalyst",
+    "gender": "Male",
+    "body-type": "Tall",
+    "human": true,
+    "rarity": 4
+  },
+  {
+    "name": "Skirk",
+    "element": "Cryo",
+    "region": "Outer Space",
+    "weapon": "Sword",
+    "gender": "Female",
+    "body-type": "Tall",
+    "human": false,
+    "rarity": 5
+  },
+  {
+    "name": "Dahlia",
+    "element": "Hydro",
+    "region": "Mondstadt",
+    "weapon": "Sword",
+    "gender": "Male",
+    "body-type": "Medium",
+    "human": true,
+    "rarity": 4
+  },
+  {
+    "name": "Ineffa",
+    "element": "Electro",
+    "region": "Nod-Krai",
+    "weapon": "Polearm",
+    "gender": "Female",
+    "body-type": "Medium",
+    "human": false,
+    "rarity": 5
+  },
+  {
+    "name": "Lauma",
+    "element": "Dendro",
+    "region": "Nod-Krai",
+    "weapon": "Catalyst",
+    "gender": "Female",
+    "body-type": "Tall",
+    "human": false,
+    "rarity": 5
+  },
+  {
+    "name": "Flins",
+    "element": "Electro",
+    "region": "Nod-Krai",
+    "weapon": "Polearm",
+    "gender": "Male",
+    "body-type": "Tall",
+    "human": false,
+    "rarity": 5
+  },
+  {
+    "name": "Aino",
+    "element": "Hydro",
+    "region": "Nod-Krai",
+    "weapon": "Claymore",
+    "gender": "Female",
+    "body-type": "Short",
+    "human": true,
+    "rarity": 4
+  },
+  {
+    "name": "Nefer",
+    "element": "Dendro",
+    "region": "Nod-Krai",
+    "weapon": "Catalyst",
+    "gender": "Female",
+    "body-type": "Tall",
+    "human": true,
+    "rarity": 5
+  },
+  {
+    "name": "Durin",
+    "element": "Pyro",
+    "region": "Mondstadt",
+    "weapon": "Sword",
+    "gender": "Male",
+    "body-type": "Medium",
+    "human": false,
+    "rarity": 5
+  },
+  {
+    "name": "Jahoda",
+    "element": "Anemo",
+    "region": "Nod-Krai",
+    "weapon": "Bow",
+    "gender": "Female",
+    "body-type": "Medium",
+    "human": true,
+    "rarity": 4
+  },
+  {
+    "name": "Columbina",
+    "element": "Hydro",
+    "region": "Nod-Krai",
+    "weapon": "Catalyst",
+    "gender": "Female",
+    "body-type": "Medium",
+    "human": false,
+    "rarity": 5
+  },
+  {
+    "name": "Zibai",
+    "element": "Geo",
+    "region": "Liyue",
+    "weapon": "Sword",
+    "gender": "Female",
+    "body-type": "Tall",
+    "human": false,
+    "rarity": 5
+  },
+  {
+    "name": "Illuga",
+    "element": "Geo",
+    "region": "Nod-Krai",
+    "weapon": "Polearm",
+    "gender": "Male",
+    "body-type": "Medium",
+    "human": true,
+    "rarity": 4
+  },
+  {
+    "name": "Varka",
+    "element": "Anemo",
+    "region": "Mondstadt",
+    "weapon": "Claymore",
+    "gender": "Male",
+    "body-type": "Tall",
+    "human": true,
+    "rarity": 5
+  },
+  {
+    "name": "Linnea",
+    "element": "Geo",
+    "region": "Nod-Krai",
+    "weapon": "Bow",
+    "gender": "Female",
+    "body-type": "Medium",
+    "human": false,
+    "rarity": 5
+  },
+  {
+    "name": "Nicole",
+    "element": "Pyro",
+    "region": "Mondstadt",
+    "weapon": "Catalyst",
+    "gender": "Female",
+    "body-type": "Tall",
+    "human": false,
+    "rarity": 5
+  },
+  {
+    "name": "Prune",
+    "element": "Anemo",
+    "region": "Mondstadt",
+    "weapon": "Catalyst",
+    "gender": "Female",
+    "body-type": "Short",
+    "human": true,
+    "rarity": 4
+  },
+  {
+    "name": "Lohen",
+    "element": "Cryo",
+    "region": "Mondstadt",
+    "weapon": "Polearm",
+    "gender": "Male",
+    "body-type": "Medium",
+    "human": true,
+    "rarity": 5
+  },
+  {
+    "name": "Sandrone",
+    "element": "Cryo",
+    "region": "Snezhnaya",
+    "weapon": "Claymore",
+    "gender": "Female",
+    "body-type": "Medium",
+    "human": false,
+    "rarity": 5
+  }
+]
