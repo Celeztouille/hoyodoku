@@ -10,13 +10,47 @@
     <body>
         <h1>Genshindoku</h1>
 
-        <div class="grid-container" id="grid"></div>
+        <div class="grid-wrapper" style="position: relative; display: inline-block;">
+            <div class="grid-container" id="grid">
+                <div class="cell corner-cell"></div>
+            </div>
+
+        
+            <div class="error-counter" id="error-counter">
+                <div class="error-text">Erreurs :</div>
+                <div class="life"></div>
+                <div class="life"></div>
+                <div class="life"></div>
+            </div>  
+
+            <div id="game-over-overlay" class="game-over-overlay">
+                <div class="game-over-content">
+                    <h2>GAME OVER</h2>
+                    <p></p>
+                    <div class="game-over-buttons">
+                        <button id="restart-btn" class="restart-btn">Recommencer</button>
+                        <button id="solutions-btn" class="solutions-btn">Voir les réponses</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="solutions-panel" class="solutions-panel">
+                <h3>Solutions pour cette case</h3>
+                <div id="solutions-content" class="solutions-content">
+                    <p style="color:#777; font-style:italic;">Survolez une case pour voir les réponses possibles.</p>
+                </div>
+            </div>
+        </div>
+
+        
+        
 
         <div class="input-field" id="input-field">
             <input type="text" id="global-input" placeholder="..." autocomplete="off">
             <ul id="suggestions-list" class="suggestions-list"></ul>
         </div>
+        
 
-        <script src="grid.js"></script>
+        <script src="grid.js" type="module"></script>
     </body>
 </html>
