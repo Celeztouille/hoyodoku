@@ -26,7 +26,7 @@ function createRule(id, text, hint, type, testFunction)
 
 const makeIncludeLetterRule = (letter) => ({
     id: `name_has_${letter}`,
-    text: `Son nom contient un '${letter.toUpperCase()}'`,
+    text: `Son nom contient un ${letter.toUpperCase()}`,
     hint: "",
     type: "include_letter",
     test: (char) => char.name.toLowerCase().includes(letter.toLowerCase())
@@ -34,7 +34,7 @@ const makeIncludeLetterRule = (letter) => ({
 
 const makeBeginLetterRule = (letter) => ({
     id: `name_begin_${letter}`,
-    text: `Son nom commence par un '${letter.toUpperCase()}'`,
+    text: `Son nom commence par un ${letter.toUpperCase()}`,
     hint: "",
     type: "begin_letter",
     test: (char) => char.name.toLowerCase()[0] === letter
@@ -42,7 +42,7 @@ const makeBeginLetterRule = (letter) => ({
 
 const makeEndLetterRule = (letter) => ({
     id: `name_end_${letter}`,
-    text: `Son nom termine par un '${letter.toUpperCase()}'`,
+    text: `Son nom termine par un ${letter.toUpperCase()}`,
     hint: "",
     type: "end_letter",
     test: (char) => char.name.toLowerCase().at(-1) === letter
@@ -54,6 +54,7 @@ const makeRegionRule = (region) => ({
     text: `Vit à ${region}`,
     hint: "Le lieu de vie actuel prime sur l'origine du personnage si les deux diffèrent.",
     type: "region",
+    image: `img/regions/Emblem_${region}.png`, 
     test: (char) => char.region === region
 });
 
@@ -62,14 +63,16 @@ const makeElementRule = (element) => ({
     text: `Vision ${element}`,
     hint: "",
     type: "element",
+    image: `img/visions/Element_${element}.png`, 
     test: (char) => char.element === element
 });
 
 const makeWeaponRule = (weapon) => ({
     id: `weapon_${weapon.toLowerCase()}`,
-    text: `Arme ${weapon}`,
+    text: weapon==='Sword' ? "Utilise une épée" : weapon==='Claymore' ? "Utilise une épée à deux mains" : weapon==='Polearm' ? "Utilise une lance" : weapon==='Bow' ? "Utilise un arc" : "Utilise un catalyseur",
     hint: "",
     type: "weapon",
+    image: `img/weapons/UI_GachaTypeIcon_${weapon}.png`, 
     test: (char) => char.weapon === weapon
 });
 

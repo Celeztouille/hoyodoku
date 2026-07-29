@@ -15,7 +15,12 @@
                 <div class="cell corner-cell"></div>
             </div>
 
-        
+            <div id="victory-display" class="victory-display">
+                <div class="victory-text">
+                    <h2>BRAVO !</h2>
+                </div>
+            </div>
+
             <div class="error-counter" id="error-counter">
                 <div class="error-text">Erreurs :</div>
                 <div class="life"></div>
@@ -23,21 +28,34 @@
                 <div class="life"></div>
             </div>  
 
+            <button id="abandon-btn" class="abandon-btn">Abandonner ?</button>
+            <button id="retry-btn" class="retry-btn">Nouvelle grille</button>
+
+            <div id="abandon-confirm-overlay" class="abandon-confirm-overlay">
+                <div class="abandon-confirm-content">
+                    <h3>Abandonner la grille ?</h3>
+                    <div class="confirm-buttons">
+                        <button id="confirm-abandon-yes" class="confirm-btn yes">Oui</button>
+                        <button id="confirm-abandon-no" class="confirm-btn no">Non</button>
+                    </div>
+                </div>
+            </div>
+
             <div id="game-over-overlay" class="game-over-overlay">
                 <div class="game-over-content">
                     <h2>GAME OVER</h2>
                     <p></p>
                     <div class="game-over-buttons">
-                        <button id="restart-btn" class="restart-btn">Recommencer</button>
+                        <button id="restart-btn" class="restart-btn">Nouvelle grille</button>
                         <button id="solutions-btn" class="solutions-btn">Voir les réponses</button>
                     </div>
                 </div>
             </div>
 
             <div id="solutions-panel" class="solutions-panel">
-                <h3>Solutions pour cette case</h3>
+                <h3 style="text-align: center;">Solutions pour cette case</h3>
                 <div id="solutions-content" class="solutions-content">
-                    <p style="color:#777; font-style:italic;">Survolez une case pour voir les réponses possibles.</p>
+                    <p style="color:#d4b91f; font-weight: lighter; justify-content: center;">Survolez une case pour voir les réponses possibles.</p>
                 </div>
             </div>
         </div>
