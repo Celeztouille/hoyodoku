@@ -8,67 +8,76 @@
     </head>
 
     <body>
-        <h1>Genshindoku</h1>
+        <h1 id="game-title">Genshindoku</h1>
 
-        <div class="grid-wrapper" style="position: relative; display: inline-block;">
-            <div class="grid-container" id="grid">
-                <div class="cell corner-cell"></div>
-            </div>
+        <div class="game-selector">
+            <button class="game-btn active" id="genshin" data-game="genshin">Genshindoku</button>
+            <button class="game-btn" id="starrail" data-game="starrail">StarRaildoku</button>
+            <button class="game-btn" id="zenless" data-game="zenless">Zenlessdoku</button>
+        </div>
 
-            <div id="victory-display" class="victory-display">
-                <div class="victory-text">
-                    <h2>BRAVO !</h2>
+        <div class="game-area">
+
+            <div class="grid-wrapper" style="position: relative; display: inline-block;">
+                <div class="grid-container" id="grid">
+                    <div class="cell corner-cell"></div>
                 </div>
-            </div>
 
-            <div class="error-counter" id="error-counter">
-                <div class="error-text">Erreurs :</div>
-                <div class="life"></div>
-                <div class="life"></div>
-                <div class="life"></div>
-            </div>  
+                <div id="victory-display" class="victory-display">
+                    <div class="victory-text">
+                        <h2>BRAVO !</h2>
+                    </div>
+                </div>
 
-            <button id="abandon-btn" class="abandon-btn">Abandonner ?</button>
-            <button id="retry-btn" class="retry-btn">Nouvelle grille</button>
+                <div class="error-counter" id="error-counter">
+                    <div class="error-text">Erreurs :</div>
+                    <div class="life"></div>
+                    <div class="life"></div>
+                    <div class="life"></div>
+                </div>  
 
-            <div id="abandon-confirm-overlay" class="abandon-confirm-overlay">
-                <div class="abandon-confirm-content">
-                    <h3>Abandonner la grille ?</h3>
-                    <div class="confirm-buttons">
-                        <button id="confirm-abandon-yes" class="confirm-btn yes">Oui</button>
-                        <button id="confirm-abandon-no" class="confirm-btn no">Non</button>
+                <button id="abandon-btn" class="abandon-btn">Abandonner ?</button>
+                <button id="retry-btn" class="retry-btn">Nouvelle grille</button>
+
+                <div id="abandon-confirm-overlay" class="abandon-confirm-overlay">
+                    <div class="abandon-confirm-content">
+                        <h3>Abandonner la grille ?</h3>
+                        <div class="confirm-buttons">
+                            <button id="confirm-abandon-yes" class="confirm-btn yes">Oui</button>
+                            <button id="confirm-abandon-no" class="confirm-btn no">Non</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="game-over-overlay" class="game-over-overlay">
+                    <div class="game-over-content">
+                        <h2>GAME OVER</h2>
+                        <p></p>
+                        <div class="game-over-buttons">
+                            <button id="restart-btn" class="restart-btn">Nouvelle grille</button>
+                            <button id="solutions-btn" class="solutions-btn">Voir les réponses</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="solutions-panel" class="solutions-panel">
+                    <h3 style="text-align: center;">Solutions pour cette case</h3>
+                    <div id="solutions-content" class="solutions-content">
+                        <p style="color:#d4b91f; font-weight: lighter; justify-content: center;">Survolez une case pour voir les réponses possibles.</p>
                     </div>
                 </div>
             </div>
+                        
 
-            <div id="game-over-overlay" class="game-over-overlay">
-                <div class="game-over-content">
-                    <h2>GAME OVER</h2>
-                    <p></p>
-                    <div class="game-over-buttons">
-                        <button id="restart-btn" class="restart-btn">Nouvelle grille</button>
-                        <button id="solutions-btn" class="solutions-btn">Voir les réponses</button>
-                    </div>
-                </div>
-            </div>
-
-            <div id="solutions-panel" class="solutions-panel">
-                <h3 style="text-align: center;">Solutions pour cette case</h3>
-                <div id="solutions-content" class="solutions-content">
-                    <p style="color:#d4b91f; font-weight: lighter; justify-content: center;">Survolez une case pour voir les réponses possibles.</p>
-                </div>
+            <div class="input-field" id="input-field">
+                <input type="text" id="global-input" placeholder="..." autocomplete="off">
+                <ul id="suggestions-list" class="suggestions-list"></ul>
             </div>
         </div>
-
         
-        
-
-        <div class="input-field" id="input-field">
-            <input type="text" id="global-input" placeholder="..." autocomplete="off">
-            <ul id="suggestions-list" class="suggestions-list"></ul>
-        </div>
         
 
         <script src="grid.js" type="module"></script>
+        <script src="theme.js" type="module"></script>
     </body>
 </html>

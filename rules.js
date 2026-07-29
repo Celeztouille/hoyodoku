@@ -1,6 +1,6 @@
 const alphabet = "abcdefghijklmnopqrstuvwxyz";
 
-const versionTimeline = [
+const versionTimelineGenshin = [
     "1.0", "1.1", "1.2", "1.3", "1.4", "1.5", "1.6",
     "2.0", "2.1", "2.2", "2.3", "2.4", "2.5", "2.6", "2.7", "2.8",
     "3.0", "3.1", "3.2", "3.3", "3.4", "3.5", "3.6", "3.7",
@@ -9,19 +9,15 @@ const versionTimeline = [
     "Luna I", "Luna II", "Luna III", "Luna IV", "Luna V", "Luna VI", "Luna VII", "Luna VIII"
 ];
 
-function getVersionIndex(versionString) {
-    return versionTimeline.indexOf(versionString);
-}
+const versionTimelineStarRail = [
+    "1.0", "1.1", "1.2", "1.3", "1.4", "1.5", "1.6",
+    "2.0", "2.1", "2.2", "2.3", "2.4", "2.5", "2.6", "2.7",
+    "3.0", "3.1", "3.2", "3.3", "3.4", "3.5", "3.6", "3.7", "3.8",
+    "4.0", "4.1", "4.2", "4.3", "4.4"
+];
 
-function createRule(id, text, hint, type, testFunction)
-{
-    return {
-        id,
-        text,
-        hint,
-        type,
-        test: testFunction
-    };
+function getVersionIndex(versionArray, versionString) {
+    return versionArray.indexOf(versionString);
 }
 
 const makeIncludeLetterRule = (letter) => ({
@@ -54,7 +50,7 @@ const makeRegionRule = (region) => ({
     text: `Vit à ${region}`,
     hint: "Le lieu de vie actuel prime sur l'origine du personnage si les deux diffèrent.",
     type: "region",
-    image: `img/regions/Emblem_${region}.png`, 
+    image: `img/genshin/regions/Emblem_${region}.png`, 
     test: (char) => char.region === region
 });
 
@@ -63,7 +59,7 @@ const makeElementRule = (element) => ({
     text: `Vision ${element}`,
     hint: "",
     type: "element",
-    image: `img/visions/Element_${element}.png`, 
+    image: `img/genshin/visions/Element_${element}.png`, 
     test: (char) => char.element === element
 });
 
@@ -72,12 +68,12 @@ const makeWeaponRule = (weapon) => ({
     text: weapon==='Sword' ? "Utilise une épée" : weapon==='Claymore' ? "Utilise une épée à deux mains" : weapon==='Polearm' ? "Utilise une lance" : weapon==='Bow' ? "Utilise un arc" : "Utilise un catalyseur",
     hint: "",
     type: "weapon",
-    image: `img/weapons/UI_GachaTypeIcon_${weapon}.png`, 
+    image: `img/genshin/weapons/UI_GachaTypeIcon_${weapon}.png`, 
     test: (char) => char.weapon === weapon
 });
 
-const makeBeforeVersionRule = (targetVersion) => {
-    const targetIndex = getVersionIndex(targetVersion);
+const makeBeforeVersionRule = (versionTimeline, targetVersion) => {
+    const targetIndex = getVersionIndex(versionTimeline, targetVersion);
     
     return {
         id: `before_v${targetVersion.replace('.', '_')}`,
@@ -85,15 +81,15 @@ const makeBeforeVersionRule = (targetVersion) => {
         hint: "",
         type: "version",
         test: (char) => {
-            const charIndex = getVersionIndex(char.version);
+            const charIndex = getVersionIndex(versionTimeline, char.version);
             if (charIndex === -1) return false; 
             return charIndex <= targetIndex;
         }
     };
 };
 
-const makeAfterVersionRule = (targetVersion) => {
-    const targetIndex = getVersionIndex(targetVersion);
+const makeAfterVersionRule = (versionTimeline, targetVersion) => {
+    const targetIndex = getVersionIndex(versionTimeline, targetVersion);
     
     return {
         id: `after_v${targetVersion.replace('.', '_')}`,
@@ -101,14 +97,14 @@ const makeAfterVersionRule = (targetVersion) => {
         hint: "",
         type: "version",
         test: (char) => {
-            const charIndex = getVersionIndex(char.version);
+            const charIndex = getVersionIndex(versionTimeline, char.version);
             if (charIndex === -1) return false; 
             return charIndex >= targetIndex;
         }
     };
 };
 
-const ruleCatalog = [
+const ruleCatalogGenshin = [
 
     makeRegionRule("Mondstadt"),
     makeRegionRule("Liyue"),
@@ -133,58 +129,58 @@ const ruleCatalog = [
     makeWeaponRule("Bow"),
     makeWeaponRule("Catalyst"),
 
-    makeBeforeVersionRule("1.0"),
-    makeBeforeVersionRule("1.1"),
-    makeBeforeVersionRule("1.2"),
-    makeBeforeVersionRule("1.3"),
-    makeBeforeVersionRule("1.4"),
-    makeBeforeVersionRule("1.5"),
-    makeBeforeVersionRule("1.6"),
-    makeBeforeVersionRule("2.0"),
-    makeBeforeVersionRule("2.1"),
-    makeBeforeVersionRule("2.2"),
-    makeBeforeVersionRule("2.3"),
-    makeBeforeVersionRule("2.4"),
-    makeBeforeVersionRule("2.5"),
-    makeBeforeVersionRule("2.6"),
-    makeBeforeVersionRule("2.7"),
-    makeBeforeVersionRule("2.8"),
-    makeBeforeVersionRule("3.0"),
-    makeBeforeVersionRule("3.1"),
-    makeBeforeVersionRule("3.2"),
-    makeBeforeVersionRule("3.3"),
-    makeBeforeVersionRule("3.4"),
-    makeBeforeVersionRule("3.5"),
-    makeBeforeVersionRule("3.6"),
-    makeBeforeVersionRule("3.7"),
+    makeBeforeVersionRule(versionTimelineGenshin, "1.0"),
+    makeBeforeVersionRule(versionTimelineGenshin, "1.1"),
+    makeBeforeVersionRule(versionTimelineGenshin, "1.2"),
+    makeBeforeVersionRule(versionTimelineGenshin, "1.3"),
+    makeBeforeVersionRule(versionTimelineGenshin, "1.4"),
+    makeBeforeVersionRule(versionTimelineGenshin, "1.5"),
+    makeBeforeVersionRule(versionTimelineGenshin, "1.6"),
+    makeBeforeVersionRule(versionTimelineGenshin, "2.0"),
+    makeBeforeVersionRule(versionTimelineGenshin, "2.1"),
+    makeBeforeVersionRule(versionTimelineGenshin, "2.2"),
+    makeBeforeVersionRule(versionTimelineGenshin, "2.3"),
+    makeBeforeVersionRule(versionTimelineGenshin, "2.4"),
+    makeBeforeVersionRule(versionTimelineGenshin, "2.5"),
+    makeBeforeVersionRule(versionTimelineGenshin, "2.6"),
+    makeBeforeVersionRule(versionTimelineGenshin, "2.7"),
+    makeBeforeVersionRule(versionTimelineGenshin, "2.8"),
+    makeBeforeVersionRule(versionTimelineGenshin, "3.0"),
+    makeBeforeVersionRule(versionTimelineGenshin, "3.1"),
+    makeBeforeVersionRule(versionTimelineGenshin, "3.2"),
+    makeBeforeVersionRule(versionTimelineGenshin, "3.3"),
+    makeBeforeVersionRule(versionTimelineGenshin, "3.4"),
+    makeBeforeVersionRule(versionTimelineGenshin, "3.5"),
+    makeBeforeVersionRule(versionTimelineGenshin, "3.6"),
+    makeBeforeVersionRule(versionTimelineGenshin, "3.7"),
 
     
-    makeAfterVersionRule("4.0"),
-    makeAfterVersionRule("4.1"),
-    makeAfterVersionRule("4.2"),
-    makeAfterVersionRule("4.3"),
-    makeAfterVersionRule("4.4"),
-    makeAfterVersionRule("4.5"),
-    makeAfterVersionRule("4.6"),
-    makeAfterVersionRule("4.7"),
-    makeAfterVersionRule("4.8"),
-    makeAfterVersionRule("5.0"),
-    makeAfterVersionRule("5.1"),
-    makeAfterVersionRule("5.2"),
-    makeAfterVersionRule("5.3"),
-    makeAfterVersionRule("5.4"),
-    makeAfterVersionRule("5.5"),
-    makeAfterVersionRule("5.6"),
-    makeAfterVersionRule("5.7"),
-    makeAfterVersionRule("5.8"),
-    makeAfterVersionRule("Luna I"),
-    makeAfterVersionRule("Luna II"),
-    makeAfterVersionRule("Luna III"),
-    makeAfterVersionRule("Luna IV"),
-    makeAfterVersionRule("Luna V"),
-    makeAfterVersionRule("Luna VI"),
-    makeAfterVersionRule("Luna VII"),
-    makeAfterVersionRule("Luna VIII"),
+    makeAfterVersionRule(versionTimelineGenshin, "4.0"),
+    makeAfterVersionRule(versionTimelineGenshin, "4.1"),
+    makeAfterVersionRule(versionTimelineGenshin, "4.2"),
+    makeAfterVersionRule(versionTimelineGenshin, "4.3"),
+    makeAfterVersionRule(versionTimelineGenshin, "4.4"),
+    makeAfterVersionRule(versionTimelineGenshin, "4.5"),
+    makeAfterVersionRule(versionTimelineGenshin, "4.6"),
+    makeAfterVersionRule(versionTimelineGenshin, "4.7"),
+    makeAfterVersionRule(versionTimelineGenshin, "4.8"),
+    makeAfterVersionRule(versionTimelineGenshin, "5.0"),
+    makeAfterVersionRule(versionTimelineGenshin, "5.1"),
+    makeAfterVersionRule(versionTimelineGenshin, "5.2"),
+    makeAfterVersionRule(versionTimelineGenshin, "5.3"),
+    makeAfterVersionRule(versionTimelineGenshin, "5.4"),
+    makeAfterVersionRule(versionTimelineGenshin, "5.5"),
+    makeAfterVersionRule(versionTimelineGenshin, "5.6"),
+    makeAfterVersionRule(versionTimelineGenshin, "5.7"),
+    makeAfterVersionRule(versionTimelineGenshin, "5.8"),
+    makeAfterVersionRule(versionTimelineGenshin, "Luna I"),
+    makeAfterVersionRule(versionTimelineGenshin, "Luna II"),
+    makeAfterVersionRule(versionTimelineGenshin, "Luna III"),
+    makeAfterVersionRule(versionTimelineGenshin, "Luna IV"),
+    makeAfterVersionRule(versionTimelineGenshin, "Luna V"),
+    makeAfterVersionRule(versionTimelineGenshin, "Luna VI"),
+    makeAfterVersionRule(versionTimelineGenshin, "Luna VII"),
+    makeAfterVersionRule(versionTimelineGenshin, "Luna VIII"),
 
     makeIncludeLetterRule("a"),
     makeIncludeLetterRule("b"),
@@ -334,7 +330,206 @@ const ruleCatalog = [
     },
 ];
 
-function generateGridRules(charactersList)
+const makeWorldRule = (world) => ({
+    id: `world_${world.toLowerCase()}`,
+    text: `Vit à ${world}`,
+    hint: "",//"Le lieu de vie actuel prime sur l'origine du personnage si les deux diffèrent.",
+    type: "world",
+    //image: `img/genshin/regions/Emblem_${region}.png`, 
+    test: (char) => char.world === world
+});
+
+const makeElementRuleHSR = (element) => ({
+    id: `element_${element.toLowerCase()}`,
+    text: `De type ${element}`,
+    hint: "",
+    type: "element",
+    //image: `img/genshin/visions/Element_${element}.png`, 
+    test: (char) => char.element === element
+});
+
+const makePathRule = (path) => ({
+    id: `path_${path.toLowerCase()}`,
+    text: `Voie ${path}`,
+    hint: "",
+    type: "path",
+    //image: `img/genshin/weapons/UI_GachaTypeIcon_${weapon}.png`, 
+    test: (char) => char.path === path
+});
+
+const ruleCatalogStarRail = [
+
+    makeRegionRule("Herta Space Station"),
+    makeWorldRule("Belobog"),
+    makeWorldRule("Xianzhou"),
+    makeRegionRule("Penacony"),
+    makeRegionRule("Amphoreus"),
+    makeRegionRule("Planarcadia"),
+
+    makeElementRuleHSR("Physical"),
+    makeElementRuleHSR("Fire"),
+    makeElementRuleHSR("Ice"),
+    makeElementRuleHSR("Wind"),
+    makeElementRuleHSR("Lightning"),
+    makeElementRuleHSR("Quantum"),
+    makeElementRuleHSR("Imaginary"),
+
+    makePathRule("Destruction"),
+    makePathRule("Hunt"),
+    makePathRule("Erudition"),
+    makePathRule("Harmony"),
+    makePathRule("Nihility"),
+    makePathRule("Preservation"),
+    makePathRule("Abundance"),
+    makePathRule("Remembrance"),
+    makePathRule("Elation"),
+
+
+    makeBeforeVersionRule(versionTimelineStarRail, "1.0"),
+    makeBeforeVersionRule(versionTimelineStarRail, "1.1"),
+    makeBeforeVersionRule(versionTimelineStarRail, "1.2"),
+    makeBeforeVersionRule(versionTimelineStarRail, "1.3"),
+    makeBeforeVersionRule(versionTimelineStarRail, "1.4"),
+    makeBeforeVersionRule(versionTimelineStarRail, "1.5"),
+    makeBeforeVersionRule(versionTimelineStarRail, "1.6"),
+    makeBeforeVersionRule(versionTimelineStarRail, "2.0"),
+    makeBeforeVersionRule(versionTimelineStarRail, "2.1"),
+    makeBeforeVersionRule(versionTimelineStarRail, "2.2"),
+    makeBeforeVersionRule(versionTimelineStarRail, "2.3"),
+    makeBeforeVersionRule(versionTimelineStarRail, "2.4"),
+    makeBeforeVersionRule(versionTimelineStarRail, "2.5"),
+    makeBeforeVersionRule(versionTimelineStarRail, "2.6"),
+    makeBeforeVersionRule(versionTimelineStarRail, "2.7"),
+    makeBeforeVersionRule(versionTimelineStarRail, "2.7"),
+
+    makeAfterVersionRule(versionTimelineStarRail, "3.0"),
+    makeAfterVersionRule(versionTimelineStarRail, "3.1"),
+    makeAfterVersionRule(versionTimelineStarRail, "3.2"),
+    makeAfterVersionRule(versionTimelineStarRail, "3.3"),
+    makeAfterVersionRule(versionTimelineStarRail, "3.4"),
+    makeAfterVersionRule(versionTimelineStarRail, "3.5"),
+    makeAfterVersionRule(versionTimelineStarRail, "3.6"),
+    makeAfterVersionRule(versionTimelineStarRail, "3.7"),
+    makeAfterVersionRule(versionTimelineStarRail, "3.8"),
+    makeAfterVersionRule(versionTimelineStarRail, "4.0"),
+    makeAfterVersionRule(versionTimelineStarRail, "4.1"),
+    makeAfterVersionRule(versionTimelineStarRail, "4.2"),
+    makeAfterVersionRule(versionTimelineStarRail, "4.3"),
+    makeAfterVersionRule(versionTimelineStarRail, "4.4"),
+
+    makeIncludeLetterRule("a"),
+    makeIncludeLetterRule("b"),
+    makeIncludeLetterRule("c"),
+    makeIncludeLetterRule("d"),
+    makeIncludeLetterRule("e"),
+    makeIncludeLetterRule("f"),
+    makeIncludeLetterRule("g"),
+    makeIncludeLetterRule("h"),
+    makeIncludeLetterRule("i"),
+    makeIncludeLetterRule("j"),
+    makeIncludeLetterRule("k"),
+    makeIncludeLetterRule("l"),
+    makeIncludeLetterRule("m"),
+    makeIncludeLetterRule("n"),
+    makeIncludeLetterRule("o"),
+    makeIncludeLetterRule("p"),
+    makeIncludeLetterRule("q"),
+    makeIncludeLetterRule("r"),
+    makeIncludeLetterRule("s"),
+    makeIncludeLetterRule("t"),
+    makeIncludeLetterRule("u"),
+    makeIncludeLetterRule("v"),
+    makeIncludeLetterRule("w"),
+    makeIncludeLetterRule("x"),
+    makeIncludeLetterRule("y"),
+    makeIncludeLetterRule("z"),
+
+    makeBeginLetterRule("a"),
+    makeBeginLetterRule("b"),
+    makeBeginLetterRule("c"),
+    makeBeginLetterRule("d"),
+    makeBeginLetterRule("e"),
+    makeBeginLetterRule("f"),
+    makeBeginLetterRule("g"),
+    makeBeginLetterRule("h"),
+    makeBeginLetterRule("i"),
+    makeBeginLetterRule("j"),
+    makeBeginLetterRule("k"),
+    makeBeginLetterRule("l"),
+    makeBeginLetterRule("m"),
+    makeBeginLetterRule("n"),
+    makeBeginLetterRule("o"),
+    makeBeginLetterRule("p"),
+    makeBeginLetterRule("q"),
+    makeBeginLetterRule("r"),
+    makeBeginLetterRule("s"),
+    makeBeginLetterRule("t"),
+    makeBeginLetterRule("u"),
+    makeBeginLetterRule("v"),
+    makeBeginLetterRule("w"),
+    makeBeginLetterRule("x"),
+    makeBeginLetterRule("y"),
+    makeBeginLetterRule("z"),
+
+    makeEndLetterRule("a"),
+    makeEndLetterRule("b"),
+    makeEndLetterRule("c"),
+    makeEndLetterRule("d"),
+    makeEndLetterRule("e"),
+    makeEndLetterRule("f"),
+    makeEndLetterRule("g"),
+    makeEndLetterRule("h"),
+    makeEndLetterRule("i"),
+    makeEndLetterRule("j"),
+    makeEndLetterRule("k"),
+    makeEndLetterRule("l"),
+    makeEndLetterRule("m"),
+    makeEndLetterRule("n"),
+    makeEndLetterRule("o"),
+    makeEndLetterRule("p"),
+    makeEndLetterRule("q"),
+    makeEndLetterRule("r"),
+    makeEndLetterRule("s"),
+    makeEndLetterRule("t"),
+    makeEndLetterRule("u"),
+    makeEndLetterRule("v"),
+    makeEndLetterRule("w"),
+    makeEndLetterRule("x"),
+    makeEndLetterRule("y"),
+    makeEndLetterRule("z"),
+
+    {
+        id: "rarity_5",
+        text: "Personnage 5 Étoiles",
+        hint: "",
+        type: "rarity",
+        test: (char) => char.rarity === 5
+    },
+    {
+        id: "rarity_4",
+        text: "Personnage 4 Étoiles",
+        hint: "",
+        type: "rarity",
+        test: (char) => char.rarity === 4
+    },
+    
+    {
+        id: "human_true",
+        text: "Est un humain",
+        hint: "",// "Personnage humain dont lui et aucun membre de sa famille biologique ne possèdent de traits animaux, ayant une durée de vie naturellement humaine (attention : les personnages ayant des coupes de cheveux ou des accessoires simulant des traits animaux comptent comme humains, idem pour les personnages ayant une durée de vie allongée suite à une malédiction où à un saut temporel).",
+        type: "human",
+        test: (char) => char.human
+    },
+    {
+        id: "human_false",
+        text: "N'est pas un humain",
+        hint: "",//"Robot, poupée, divinité ou personnage dont lui ou un membre de sa famille biologique possède des traits animaux ou ayant une durée de vie non-humaine (attention : les personnages ayant des coupes de cheveux ou des accessoires simulant des traits animaux comptent comme humains, idem pour les personnages ayant une durée de vie allongée suite à une malédiction où à un saut temporel).",
+        type: "human",
+        test: (char) => !char.human
+    },
+];
+
+function generateGridRules(ruleCatalog, charactersList)
 {
     let attempts = 0;
     const maxAttempts = 500;
@@ -427,13 +622,12 @@ function generateGridRules(charactersList)
             isValid = true;
             finalRowRules = rowRules;
             finalColRules = colRules;
-            console.log(`Grille générée avec succès après ${attempts} tentative(s).`);
+            console.log(`Grille générée avec succès après ${attempts} tentative(s). ${charactersList[0].name}`);
         }
     }
 
     if (!isValid) {
         console.error("Échec : Impossible de générer une grille valide après 1000 essais.");
-        // Pour l'instant, on retourne ce qu'on a pour ne pas crasher
         return { rowRules: finalRowRules.length ? finalRowRules : rowRules, colRules: finalColRules.length ? finalColRules : colRules };
     }
 
@@ -475,4 +669,4 @@ function solveGrid(grid)
     }
 }
 
-export { ruleCatalog, generateGridRules };
+export { ruleCatalogGenshin, ruleCatalogStarRail, generateGridRules };

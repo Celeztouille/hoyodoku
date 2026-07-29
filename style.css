@@ -6,32 +6,168 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'StarRail'; 
+    src: url('fonts/starrail.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Zenless'; 
+    src: url('fonts/zenless.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 body {
     font-family: 'Genshin';
     background-image: 
         linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-        url('img/background.jpg');
+        url('img/genshin/background.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
 
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 20px;
     min-height: 100vh;
     margin: 0;
-    padding: 40px 20px;
+    padding: 60px 20px;
     box-sizing: border-box;
     width: 100%;
 }
 
-h1 {
-    color: #d4b91f;
-    margin-bottom: 20px;
+body.theme-genshin {
     font-family: 'Genshin';
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url('img/genshin/background.jpg');
+}
+
+body.theme-starrail {
+    font-family: 'StarRail';
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url('img/starrail/background.png');
+}
+
+body.theme-zenless {
+    font-family: 'Zenless'; 
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url('img/zenless/background.png');
+}
+
+h1 {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    z-index: 10;
+    color: #d4b91f;
+    font-family: inherit;
     font-size: 3rem;
+}
+
+.game-area {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;    
+    gap: 20px;              
+    margin-top: 40px;      
+}
+
+
+.game-selector {
+    position: fixed;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%); 
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    margin-right: 30px; 
+    align-items: center;
+    padding-top: 60px;
+}
+
+.game-btn {
+    padding: 15px 20px;
+    font-family: inherit;
+    font-size: 1.1rem;
+    font-weight: bold;
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    justify-content: center;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 180px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.game-btn#genshin
+{
+    font-family: 'Genshin';
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url('img/selectorGenshin.png');
+}
+
+.game-btn#starrail
+{
+    font-family: 'StarRail';
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url('img/selectorStarRail.png');
+}
+
+.game-btn#zenless
+{
+    font-family: 'Zenless';
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url('img/selectorZenless.png');
+}
+
+.game-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.game-btn#genshin:hover
+{
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+        url('img/selectorGenshin.png');
+}
+
+.game-btn#starrail:hover
+{
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+        url('img/selectorStarRail.png');
+}
+
+.game-btn#zenless:hover
+{
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+        url('img/selectorZenless.png');
 }
 
 .grid-wrapper {
