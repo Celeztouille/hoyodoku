@@ -1,4 +1,4 @@
-import { ruleCatalogGenshin, ruleCatalogStarRail, generateGridRules } from "./rules.js";
+import { ruleCatalogGenshin, ruleCatalogStarRail, ruleCatalogZenless, generateGridRules } from "./rules.js";
 
 const gridElement = document.getElementById('grid');
 const inputField = document.getElementById('input-field');
@@ -35,11 +35,11 @@ const maxErrors = 3;
 let isGameOver = false;
 let isCorrectionMode = false;
 
-export async function loadGame(gameKey) {
+export async function loadGame(gameKey, fromRetry = false) {
     console.log(`Chargement du jeu : ${gameKey}`);
     currentGameKey = gameKey;
 
-    allCharacters = [];
+    if (!fromRetry) allCharacters = [];
     currentRowRules = [];
     currentColRules = [];
     errorCount = 0;
@@ -63,18 +63,23 @@ export async function loadGame(gameKey) {
         charactersPath = 'charactersStarRail.json';
         rulesData = ruleCatalogStarRail;
     }
-    // Ajoute else if pour zenless plus tard
+    else if (gameKey === 'zenless') {
+        charactersPath = 'charactersZenless.json';
+        rulesData = ruleCatalogZenless;
+    }
 
     try {
-        console.log("Tentative de chargement du chemin :", charactersPath);
-        const response = await fetch(charactersPath);
-        if (!response.ok) throw new Error("Erreur chargement JSON");
-        allCharacters = await response.json();
-        
-        // Stocker le catalogue de règles pour la validation
+
+        if (!fromRetry)
+        {
+            console.log("Tentative de chargement du chemin :", charactersPath);
+            const response = await fetch(charactersPath);
+            if (!response.ok) throw new Error("Erreur chargement JSON");
+            allCharacters = await response.json();
+        }
+
         ruleCatalog = rulesData;
 
-        // 3. Génération de la grille
         if (allCharacters.length > 0 && generateGridRules) {
             const { rowRules, colRules } = generateGridRules(rulesData, allCharacters);
             currentRowRules = rowRules;
@@ -120,7 +125,7 @@ function createGrid()
     } else if (currentGameKey === 'starrail') {
         cornerImgSrc = 'img/starrail/pompom.png'; 
     } else if (currentGameKey === 'zenless') {
-        cornerImgSrc = 'img/zenless/belle.png'; 
+        cornerImgSrc = 'img/zenless/eous.webp'; 
     }
     
     const img = document.createElement('img');
@@ -400,8 +405,8 @@ function fillCell(characterName)
     const rowRuleId = currentCell.dataset.rowRuleId;
     const colRuleId = currentCell.dataset.colRuleId;
 
-    const rowRule = ruleCatalogGenshin.find(r => r.id === rowRuleId);
-    const colRule = ruleCatalogGenshin.find(r => r.id === colRuleId);
+    const rowRule = ruleCatalog.find(r => r.id === rowRuleId);
+    const colRule = ruleCatalog.find(r => r.id === colRuleId);
 
     let clearingDetected = false;
 
@@ -562,7 +567,7 @@ function restartGame() {
     selectedCell = null;
     updateErrorCounter();
     gameOverOverlay.classList.remove('active');
-    createGrid();
+    loadGame(currentGameKey, true);
 }
 
 function startCorrectionMode() {
@@ -622,6 +627,8 @@ function checkWinCondition() {
             isCorrectionMode = true;
 
             setTimeout(() => {
+                victoryDisplay.classList.remove('active');
+                void victoryDisplay.offsetWidth;  // refresh le css
                 victoryDisplay.classList.add('active');
                 document.body.classList.add('victory-mode');
                 document.body.classList.add('correction-mode');

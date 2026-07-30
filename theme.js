@@ -26,12 +26,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 key: 'genshin'
             },
             starrail: {
-                title: "StarRailDoku",
+                title: "StarRaildoku",
                 themeClass: "theme-starrail",
                 key: 'starrail'
             },
             zenless: {
-                title: "ZenlessDoku",
+                title: "Zenlessdoku",
                 themeClass: "theme-zenless",
                 key: 'zenless'
             }

@@ -154,7 +154,7 @@
     "weapon": "Catalyst",
     "gender": "Female",
     "bodyType": "Medium",
-    "human": true,
+    "human": false,
     "rarity": 4
   , "version" : "1.0",
     "image" : "img/genshin/facecards/UI_AvatarIcon_Sucrose.png"},

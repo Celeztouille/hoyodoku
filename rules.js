@@ -1,5 +1,3 @@
-const alphabet = "abcdefghijklmnopqrstuvwxyz";
-
 const versionTimelineGenshin = [
     "1.0", "1.1", "1.2", "1.3", "1.4", "1.5", "1.6",
     "2.0", "2.1", "2.2", "2.3", "2.4", "2.5", "2.6", "2.7", "2.8",
@@ -14,6 +12,12 @@ const versionTimelineStarRail = [
     "2.0", "2.1", "2.2", "2.3", "2.4", "2.5", "2.6", "2.7",
     "3.0", "3.1", "3.2", "3.3", "3.4", "3.5", "3.6", "3.7", "3.8",
     "4.0", "4.1", "4.2", "4.3", "4.4"
+];
+
+const versionTimelineZenless = [
+    "1.0", "1.1", "1.2", "1.3", "1.4", "1.5", "1.6", "1.7",
+    "2.0", "2.1", "2.2", "2.3", "2.4", "2.5", "2.6", "2.7", "2.8",
+    "3.0", "3.1"
 ];
 
 function getVersionIndex(versionArray, versionString) {
@@ -48,7 +52,7 @@ const makeEndLetterRule = (letter) => ({
 const makeRegionRule = (region) => ({
     id: `region_${region.toLowerCase()}`,
     text: `Vit à ${region}`,
-    hint: "Le lieu de vie actuel prime sur l'origine du personnage si les deux diffèrent.",
+    hint: "Si la région d'origine est différente de la région de sa principale résidence, c'est la deuxième option qui compte (L'Hexenzirkel est considéré comme faisant partie de Mondstadt).",
     type: "region",
     image: `img/genshin/regions/Emblem_${region}.png`, 
     test: (char) => char.region === region
@@ -317,14 +321,14 @@ const ruleCatalogGenshin = [
     {
         id: "human_true",
         text: "Est un humain",
-        hint: "Personnage humain dont lui et aucun membre de sa famille biologique ne possèdent de traits animaux, ayant une durée de vie naturellement humaine (attention : les personnages ayant des coupes de cheveux ou des accessoires simulant des traits animaux comptent comme humains, idem pour les personnages ayant une durée de vie allongée suite à une malédiction où à un saut temporel).",
+        hint: "Ne sont pas considérés comme humains:\n• Les personnages possédant des traits animaux.\n• Les personnages ayant un membre de leur famille biologique possédant des traits animaux.\n• Les androides, yôkai, poupées et divinités.\n• Les non-natifs de Teyvat.\n• Les personnages à longue durée de vie, si ce n'est pas dû à une malédiction ou un saut temporel.\n(Les personnages humains ayant des coupes de cheveux ou accessoires simulant des traits animaux comptent comme humains.)",
         type: "human",
         test: (char) => char.human
     },
     {
         id: "human_false",
         text: "N'est pas un humain",
-        hint: "Robot, poupée, divinité ou personnage dont lui ou un membre de sa famille biologique possède des traits animaux ou ayant une durée de vie non-humaine (attention : les personnages ayant des coupes de cheveux ou des accessoires simulant des traits animaux comptent comme humains, idem pour les personnages ayant une durée de vie allongée suite à une malédiction où à un saut temporel).",
+        hint: "Ne sont pas considérés comme humains:\n• Les personnages possédant des traits animaux.\n• Les personnages ayant un membre de leur famille biologique possédant des traits animaux.\n• Les androides, yôkai, poupées et divinités.\n• Les non-natifs de Teyvat.\n• Les personnages à longue durée de vie, si ce n'est pas dû à une malédiction ou un saut temporel.\n(Les personnages humains ayant des coupes de cheveux ou accessoires simulant des traits animaux comptent comme humains.)",
         type: "human",
         test: (char) => !char.human
     },
@@ -333,9 +337,9 @@ const ruleCatalogGenshin = [
 const makeWorldRule = (world) => ({
     id: `world_${world.toLowerCase()}`,
     text: `Vit à ${world}`,
-    hint: "",//"Le lieu de vie actuel prime sur l'origine du personnage si les deux diffèrent.",
+    hint: "",
     type: "world",
-    //image: `img/genshin/regions/Emblem_${region}.png`, 
+    image: `img/starrail/worlds/Icon_${world.replaceAll(' ', '_')}.webp`, 
     test: (char) => char.world === world
 });
 
@@ -344,7 +348,7 @@ const makeElementRuleHSR = (element) => ({
     text: `De type ${element}`,
     hint: "",
     type: "element",
-    //image: `img/genshin/visions/Element_${element}.png`, 
+    image: `img/starrail/elements/Type_${element}.webp`, 
     test: (char) => char.element === element
 });
 
@@ -353,18 +357,42 @@ const makePathRule = (path) => ({
     text: `Voie ${path}`,
     hint: "",
     type: "path",
-    //image: `img/genshin/weapons/UI_GachaTypeIcon_${weapon}.png`, 
+    image: `img/starrail/paths/Path_${path}.webp`, 
     test: (char) => char.path === path
 });
 
+const makecwCostRule = (cwCost) => ({
+    id: `cwCost_${cwCost}`,
+    text: `Coûte ${cwCost} en Currency War`,
+    hint: "",
+    type: "cwCost",
+    test: (char) => char.cwcost === cwCost
+})
+
+const makecwCostDoubleRule = (cwCost1, cwCost2) => ({
+    id: `cwCostDouble_${cwCost1}${cwCost2}`,
+    text: `Coûte ${cwCost1} ou ${cwCost2} en Currency War`,
+    hint: "",
+    type: "cwCost",
+    test: (char) => char.cwcost === cwCost1 || char.cwcost === cwCost2 
+})
+
+const makecwBondsRule = (bond) => ({
+    id: `cwBond_${bond.replaceAll(' ', '')}`,
+    text: `De la synergie ${bond} (Currency War)`,
+    hint: "",
+    type: "cwBond",
+    test: (char) => char.cwbonds.includes(bond)
+})
+
 const ruleCatalogStarRail = [
 
-    makeRegionRule("Herta Space Station"),
+    makeWorldRule("Herta Space Station"),
     makeWorldRule("Belobog"),
     makeWorldRule("Xianzhou"),
-    makeRegionRule("Penacony"),
-    makeRegionRule("Amphoreus"),
-    makeRegionRule("Planarcadia"),
+    makeWorldRule("Penacony"),
+    makeWorldRule("Amphoreus"),
+    makeWorldRule("Planarcadia"),
 
     makeElementRuleHSR("Physical"),
     makeElementRuleHSR("Fire"),
@@ -384,6 +412,39 @@ const ruleCatalogStarRail = [
     makePathRule("Remembrance"),
     makePathRule("Elation"),
 
+    makecwCostRule(1),
+    makecwCostRule(2),
+    makecwCostRule(3),
+    makecwCostRule(4),
+    makecwCostRule(5),
+    
+    makecwCostDoubleRule(1, 2),
+    makecwCostDoubleRule(2, 3),
+    makecwCostDoubleRule(3, 4),
+    makecwCostDoubleRule(4, 5),
+
+    makecwBondsRule('Xianzhou'),
+    makecwBondsRule('Wolf Hunt'),
+    makecwBondsRule('Night Demigod'),
+    makecwBondsRule('Day Demigod'),
+    makecwBondsRule('Express Cohort'),
+    makecwBondsRule('Cosmic Scholar'),
+    makecwBondsRule('Galactic Voyager'),
+    makecwBondsRule('The Planet of Festivities'),
+    makecwBondsRule('Stellaron Hunters'),
+    makecwBondsRule('Break'),
+    makecwBondsRule('Follow-Up ATK'),
+    makecwBondsRule('Energy'),
+    makecwBondsRule('AoE ATK'),
+    makecwBondsRule('Bloodflame'),
+
+    {
+        id: "cwBond_None",
+        text: "Non inclus dans Currency War",
+        hint: "",
+        type: "cwBond",
+        test: (char) => char.cwcost === 0
+    },
 
     makeBeforeVersionRule(versionTimelineStarRail, "1.0"),
     makeBeforeVersionRule(versionTimelineStarRail, "1.1"),
@@ -512,21 +573,296 @@ const ruleCatalogStarRail = [
         type: "rarity",
         test: (char) => char.rarity === 4
     },
+
+    {
+        id: "gender_male",
+        text: "Homme",
+        hint: "",
+        type: "human",
+        test: (char) => char.gender === "Male"
+    },
+    {
+        id: "gender_female",
+        text: "Femme",
+        hint: "",
+        type: "human",
+        test: (char) => char.gender === "Female"
+    },
     
     {
         id: "human_true",
         text: "Est un humain",
-        hint: "",// "Personnage humain dont lui et aucun membre de sa famille biologique ne possèdent de traits animaux, ayant une durée de vie naturellement humaine (attention : les personnages ayant des coupes de cheveux ou des accessoires simulant des traits animaux comptent comme humains, idem pour les personnages ayant une durée de vie allongée suite à une malédiction où à un saut temporel).",
+        hint: "Sont considérés comme humains :\n• Les personnages explicitements humains (qu'ils soient génétiquement modifiés ou non).\n• Les natifs de Xianzhou non Foxiens et non Vidyadhariens (quelque soit leur durée de vie).\n• Les Avginiens.\n• Les personnages dont l'espèce n'est pas précisée.",
         type: "human",
         test: (char) => char.human
     },
     {
         id: "human_false",
         text: "N'est pas un humain",
-        hint: "",//"Robot, poupée, divinité ou personnage dont lui ou un membre de sa famille biologique possède des traits animaux ou ayant une durée de vie non-humaine (attention : les personnages ayant des coupes de cheveux ou des accessoires simulant des traits animaux comptent comme humains, idem pour les personnages ayant une durée de vie allongée suite à une malédiction où à un saut temporel).",
+        hint: "Sont considérés comme non-humains :\n• Les Foxiens, Vidyadhariens, Onis, Haloviens, Imagenae, Servants.\n• Les poupées et entités mémorielles ou virtuelles.\n(Les personnages qui étaient humains mais qui ne le sont plus comptent comme non-humains.)",
         type: "human",
         test: (char) => !char.human
     },
+];
+
+const makeAttributeRule = (attribute) => ({
+    id: `attribute_${attribute.toLowerCase()}`,
+    text: `Attribut ${attribute}`,
+    hint: "",
+    type: "attribute",
+    image: `img/zenless/attributes/Icon_${attribute}.webp`, 
+    test: (char) => char.attribute === attribute
+});
+
+const makeSpecialtyRule = (specialty) => ({
+    id: `specialty_${specialty.toLowerCase()}`,
+    text: `Spécialité ${specialty}`,
+    hint: "",
+    type: "specialty",
+    image: `img/zenless/specialties/Icon_${specialty}.webp`, 
+    test: (char) => char.specialty === specialty
+});
+
+
+const ruleCatalogZenless = [
+
+    makeAttributeRule("Physical"),
+    makeAttributeRule("Electric"),
+    makeAttributeRule("Fire"),
+    makeAttributeRule("Ice"),
+    makeAttributeRule("Ether"),
+
+    makeSpecialtyRule("Attack"),
+    makeSpecialtyRule("Stun"),
+    makeSpecialtyRule("Defense"),
+    makeSpecialtyRule("Support"),
+    makeSpecialtyRule("Anomaly"),
+    makeSpecialtyRule("Rupture"),
+
+    {
+        id: "faction_hares_mockingbird",
+        text: "Fait partie des Lièvres Rusés ou des Oiseaux Moqueurs",
+        hint: "",
+        type: "faction",
+        test: (char) => char.faction === "Cunning Hares" || char.faction === "Mockingbird"
+    },
+    {
+        id: "faction_belobog_victoria",
+        text: "Fait partie des Usines Belobog ou de la Société d'entretien Victoria",
+        hint: "",
+        type: "faction",
+        test: (char) => char.faction === "Belobog Heavy Industries" || char.faction === "Victoria Housekeeping"
+    },
+    {
+        id: "faction_obol_silver_section6",
+        text: "Fait partie de l'Escouade Obole ou Argent, ou de la Section 6",
+        hint: "",
+        type: "faction",
+        test: (char) => char.faction === "Obol Squad" || char.faction === "Silver Squad" || char.faction === "Section 6"
+    },
+    {
+        id: "faction_neps_krampus",
+        text: "Fait partie de la N.E.P.S. ou de Krampus",
+        hint: "",
+        type: "faction",
+        test: (char) => char.faction === "N.E.P.S." || char.faction === "Krampus"
+    },
+    {
+        id: "faction_neps_phaethon_calydon",
+        text: "Fait partie des Fils de Calydon ou de Phaethon",
+        hint: "",
+        type: "faction",
+        test: (char) => char.faction === "Sons of Calydon" || char.faction === "Phaethon"
+    },
+    {
+        id: "faction_lyra_aod_roscaelifer",
+        text: "Fait partie des Etoiles de la Lyre, des Anges de l'Illusion ou vit à Roscaelifer",
+        hint: "",
+        type: "faction",
+        test: (char) => char.faction === "Stars of Lyra" || char.faction === "Angels of Delusion" || char.faction === "Roscaelifer"
+    },
+    {
+        id: "faction_yunkui_shack",
+        text: "Fait partie des Cimes de Yunkui ou de la Maison Hantée",
+        hint: "",
+        type: "faction",
+        test: (char) => char.faction === "Yunkui Summit" || char.faction === "Spook Shack"
+    },
+
+    {
+        id: "rank_s",
+        text: "Personnage de rang S",
+        hint: "",
+        type: "rank",
+        image: `img/zenless/rank/Icon_AgentRank_S.webp`, 
+        test: (char) => char.rank === "S"
+    },
+    {
+        id: "rarity_4",
+        text: "Personnage de rang A",
+        hint: "",
+        type: "rank",
+        image: `img/zenless/rank/Icon_AgentRank_A.webp`,
+        test: (char) => char.rank === 'A'
+    },
+
+    {
+        id: "species_human",
+        text: "Est un humain",
+        hint: "• Les clones et les répliques d'humains sont considérés comme des constructions intelligentes.\n• Les onis et les anges sont considérés comme des Thiriens.\n• Les étheriens sont considérés comme des humains.\n• Les personnages dont l'espèce est inconnue sont considérés comme des humains.",
+        type: "species",
+        test: (char) => char.species === "Human"
+    },
+    {
+        id: "species_thiren",
+        text: "Est un Thirien",
+        hint: "• Les clones et les répliques d'humains sont considérés comme des constructions intelligentes.\n• Les onis et les anges sont considérés comme des Thiriens.\n• Les étheriens sont considérés comme des humains.\n• Les personnages dont l'espèce est inconnue sont considérés comme des humains.",
+        type: "species",
+        test: (char) => char.species === "Thiren"
+    },
+    {
+        id: "species_construct",
+        text: "Est un clone ou une construction intelligente",
+        hint: "• Les clones et les répliques d'humains sont considérés comme des constructions intelligentes.\n• Les onis et les anges sont considérés comme des Thiriens.\n• Les étheriens sont considérés comme des humains.\n• Les personnages dont l'espèce est inconnue sont considérés comme des humains.",
+        type: "species",
+        test: (char) => char.species === "Construct"
+    },
+
+    {
+        id: "bodyType_short_female",
+        text: "Femme de petite taille",
+        hint: "Personnages féminins dont la taille est inférieure ou égale à 155cm",
+        type: "bodyType",
+        test: (char) => char.bodyType === "Size 01 Female"
+    },
+
+    {
+        id: "bodyType_medium_female",
+        text: "Femme de taille moyenne",
+        hint: "Personnages féminins dont la taille est comprise entre 156cm et 165cm",
+        type: "bodyType",
+        test: (char) => char.bodyType === "Size 02 Female"
+    },
+
+    {
+        id: "bodyType_tall_female",
+        text: "Femme de grande taille",
+        hint: "Personnages féminins dont la taille est supérieure à 166cm",
+        type: "bodyType",
+        test: (char) => char.bodyType === "Size 03 Female"
+    },
+
+    {
+        id: "bodyType_male",
+        text: "Homme",
+        hint: "",
+        type: "bodyType",
+        test: (char) => char.bodyType === "Size 01 Male" || char.bodyType === "Size 02 Male" || char.bodyType === "Size 03 Male"
+    },
+
+
+    makeBeforeVersionRule(versionTimelineZenless, "1.0"),
+    makeBeforeVersionRule(versionTimelineZenless, "1.1"),
+    makeBeforeVersionRule(versionTimelineZenless, "1.2"),
+    makeBeforeVersionRule(versionTimelineZenless, "1.3"),
+    makeBeforeVersionRule(versionTimelineZenless, "1.4"),
+    makeBeforeVersionRule(versionTimelineZenless, "1.5"),
+    makeBeforeVersionRule(versionTimelineZenless, "1.6"),
+    makeBeforeVersionRule(versionTimelineZenless, "1.7"),
+
+    
+    makeAfterVersionRule(versionTimelineZenless, "2.0"),
+    makeAfterVersionRule(versionTimelineZenless, "2.1"),
+    makeAfterVersionRule(versionTimelineZenless, "2.2"),
+    makeAfterVersionRule(versionTimelineZenless, "2.3"),
+    makeAfterVersionRule(versionTimelineZenless, "2.4"),
+    makeAfterVersionRule(versionTimelineZenless, "2.5"),
+    makeAfterVersionRule(versionTimelineZenless, "2.6"),
+    makeAfterVersionRule(versionTimelineZenless, "2.7"),
+    makeAfterVersionRule(versionTimelineZenless, "2.8"),
+    makeAfterVersionRule(versionTimelineZenless, "3.0"),
+    makeAfterVersionRule(versionTimelineZenless, "3.1"),
+
+    makeIncludeLetterRule("a"),
+    makeIncludeLetterRule("b"),
+    makeIncludeLetterRule("c"),
+    makeIncludeLetterRule("d"),
+    makeIncludeLetterRule("e"),
+    makeIncludeLetterRule("f"),
+    makeIncludeLetterRule("g"),
+    makeIncludeLetterRule("h"),
+    makeIncludeLetterRule("i"),
+    makeIncludeLetterRule("j"),
+    makeIncludeLetterRule("k"),
+    makeIncludeLetterRule("l"),
+    makeIncludeLetterRule("m"),
+    makeIncludeLetterRule("n"),
+    makeIncludeLetterRule("o"),
+    makeIncludeLetterRule("p"),
+    makeIncludeLetterRule("q"),
+    makeIncludeLetterRule("r"),
+    makeIncludeLetterRule("s"),
+    makeIncludeLetterRule("t"),
+    makeIncludeLetterRule("u"),
+    makeIncludeLetterRule("v"),
+    makeIncludeLetterRule("w"),
+    makeIncludeLetterRule("x"),
+    makeIncludeLetterRule("y"),
+    makeIncludeLetterRule("z"),
+
+    makeBeginLetterRule("a"),
+    makeBeginLetterRule("b"),
+    makeBeginLetterRule("c"),
+    makeBeginLetterRule("d"),
+    makeBeginLetterRule("e"),
+    makeBeginLetterRule("f"),
+    makeBeginLetterRule("g"),
+    makeBeginLetterRule("h"),
+    makeBeginLetterRule("i"),
+    makeBeginLetterRule("j"),
+    makeBeginLetterRule("k"),
+    makeBeginLetterRule("l"),
+    makeBeginLetterRule("m"),
+    makeBeginLetterRule("n"),
+    makeBeginLetterRule("o"),
+    makeBeginLetterRule("p"),
+    makeBeginLetterRule("q"),
+    makeBeginLetterRule("r"),
+    makeBeginLetterRule("s"),
+    makeBeginLetterRule("t"),
+    makeBeginLetterRule("u"),
+    makeBeginLetterRule("v"),
+    makeBeginLetterRule("w"),
+    makeBeginLetterRule("x"),
+    makeBeginLetterRule("y"),
+    makeBeginLetterRule("z"),
+
+    makeEndLetterRule("a"),
+    makeEndLetterRule("b"),
+    makeEndLetterRule("c"),
+    makeEndLetterRule("d"),
+    makeEndLetterRule("e"),
+    makeEndLetterRule("f"),
+    makeEndLetterRule("g"),
+    makeEndLetterRule("h"),
+    makeEndLetterRule("i"),
+    makeEndLetterRule("j"),
+    makeEndLetterRule("k"),
+    makeEndLetterRule("l"),
+    makeEndLetterRule("m"),
+    makeEndLetterRule("n"),
+    makeEndLetterRule("o"),
+    makeEndLetterRule("p"),
+    makeEndLetterRule("q"),
+    makeEndLetterRule("r"),
+    makeEndLetterRule("s"),
+    makeEndLetterRule("t"),
+    makeEndLetterRule("u"),
+    makeEndLetterRule("v"),
+    makeEndLetterRule("w"),
+    makeEndLetterRule("x"),
+    makeEndLetterRule("y"),
+    makeEndLetterRule("z"),
 ];
 
 function generateGridRules(ruleCatalog, charactersList)
@@ -604,7 +940,7 @@ function generateGridRules(ruleCatalog, charactersList)
             const rowOptions = [];
             for (let c = 0; c < 3; c++) {
                 const candidates = charactersList.filter(char => rowRules[r].test(char) && colRules[c].test(char));
-                if (candidates.length === 0 || candidates.length > 20) {
+                if (candidates.length === 0 || candidates.length > 15) {
                     basicCheck = false;
                     break;
                 }
@@ -669,4 +1005,4 @@ function solveGrid(grid)
     }
 }
 
-export { ruleCatalogGenshin, ruleCatalogStarRail, generateGridRules };
+export { ruleCatalogGenshin, ruleCatalogStarRail, ruleCatalogZenless, generateGridRules };
